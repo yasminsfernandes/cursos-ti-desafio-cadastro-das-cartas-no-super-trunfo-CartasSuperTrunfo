@@ -2,12 +2,13 @@
 
 int main() {
     // Variáveis para armazenar os dados das duas cartas (RS e SC)
-    int populacao1, populacao2;     // População dos estados
+    unsigned long int populacao1, populacao2; // População dos estados
     float area1, area2;             // Área dos estados
     float pib1, pib2;               // PIB dos estados
     int pontos_turisticos1, pontos_turisticos2; // Pontos turísticos dos estados
     float densidade1, densidade2;   // Densidade populacional
     float pib_per_capita1, pib_per_capita2; // PIB per capita
+    float super_poder1, super_poder2; // Super Poder
 
     // Cadastro da primeira carta (Rio Grande do Sul)
     printf("Primeira carta - Rio Grande do Sul:\n");
@@ -34,26 +35,42 @@ int main() {
     densidade2 = populacao2 / area2;
     pib_per_capita2 = (pib2 * 1000000000) / populacao2;
 
+    // Cálculo do Super Poder
+    super_poder1 = populacao1 + area1 + pib1 + pontos_turisticos1 + pib_per_capita1 + (1.0 / densidade1);
+    super_poder2 = populacao2 + area2 + pib2 + pontos_turisticos2 + pib_per_capita2 + (1.0 / densidade2);
+
     // Exibição dos dados cadastrados
     printf("\nDados cadastrados:\n");
 
     // Exibe os dados da carta do Rio Grande do Sul
     printf("\nPrimeira carta (Rio Grande do Sul):\n");
-    printf("População: %d\n", populacao1);
+    printf("População: %lu\n", populacao1);
     printf("Área: %.2f km²\n", area1);
     printf("PIB: R$ %.2f bilhões\n", pib1);
     printf("Número de pontos turísticos: %d\n", pontos_turisticos1);
     printf("Densidade Populacional: %.2f hab/km²\n", densidade1);
     printf("PIB per Capita: R$ %.2f\n", pib_per_capita1);
+    printf("Super Poder: %.2f\n", super_poder1);
 
     // Exibe os dados da carta de Santa Catarina
     printf("\nSegunda carta (Santa Catarina):\n");
-    printf("População: %d\n", populacao2);
+    printf("População: %lu\n", populacao2);
     printf("Área: %.2f km²\n", area2);
     printf("PIB: R$ %.2f bilhões\n", pib2);
     printf("Número de pontos turísticos: %d\n", pontos_turisticos2);
     printf("Densidade Populacional: %.2f hab/km²\n", densidade2);
     printf("PIB per Capita: R$ %.2f\n", pib_per_capita2);
+    printf("Super Poder: %.2f\n", super_poder2);
+
+    // Comparação de atributos
+    printf("\nComparação de Cartas:\n");
+    printf("População: Carta 1 venceu (%d)\n", populacao1 > populacao2);
+    printf("Área: Carta 1 venceu (%d)\n", area1 > area2);
+    printf("PIB: Carta 1 venceu (%d)\n", pib1 > pib2);
+    printf("Pontos Turísticos: Carta 1 venceu (%d)\n", pontos_turisticos1 > pontos_turisticos2);
+    printf("Densidade Populacional: Carta 1 venceu (%d)\n", densidade1 < densidade2);
+    printf("PIB per Capita: Carta 1 venceu (%d)\n", pib_per_capita1 > pib_per_capita2);
+    printf("Super Poder: Carta 1 venceu (%d)\n", super_poder1 > super_poder2);
 
     return 0; // Fim do programa
 }
