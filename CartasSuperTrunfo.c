@@ -8,7 +8,6 @@ int main() {
     int pontos_turisticos1, pontos_turisticos2; // Pontos turísticos dos estados
     float densidade1, densidade2;   // Densidade populacional
     float pib_per_capita1, pib_per_capita2; // PIB per capita
-    float super_poder1, super_poder2; // Super Poder
 
     // Cadastro da primeira carta (Rio Grande do Sul)
     printf("Primeira carta - Rio Grande do Sul:\n");
@@ -35,10 +34,6 @@ int main() {
     densidade2 = populacao2 / area2;
     pib_per_capita2 = (pib2 * 1000000000) / populacao2;
 
-    // Cálculo do Super Poder
-    super_poder1 = populacao1 + area1 + pib1 + pontos_turisticos1 + pib_per_capita1 + (1.0 / densidade1);
-    super_poder2 = populacao2 + area2 + pib2 + pontos_turisticos2 + pib_per_capita2 + (1.0 / densidade2);
-
     // Exibição dos dados cadastrados
     printf("\nDados cadastrados:\n");
 
@@ -50,7 +45,6 @@ int main() {
     printf("Número de pontos turísticos: %d\n", pontos_turisticos1);
     printf("Densidade Populacional: %.2f hab/km²\n", densidade1);
     printf("PIB per Capita: R$ %.2f\n", pib_per_capita1);
-    printf("Super Poder: %.2f\n", super_poder1);
 
     // Exibe os dados da carta de Santa Catarina
     printf("\nSegunda carta (Santa Catarina):\n");
@@ -60,17 +54,17 @@ int main() {
     printf("Número de pontos turísticos: %d\n", pontos_turisticos2);
     printf("Densidade Populacional: %.2f hab/km²\n", densidade2);
     printf("PIB per Capita: R$ %.2f\n", pib_per_capita2);
-    printf("Super Poder: %.2f\n", super_poder2);
 
-    // Comparação de atributos
-    printf("\nComparação de Cartas:\n");
-    printf("População: Carta 1 venceu (%d)\n", populacao1 > populacao2);
-    printf("Área: Carta 1 venceu (%d)\n", area1 > area2);
-    printf("PIB: Carta 1 venceu (%d)\n", pib1 > pib2);
-    printf("Pontos Turísticos: Carta 1 venceu (%d)\n", pontos_turisticos1 > pontos_turisticos2);
-    printf("Densidade Populacional: Carta 1 venceu (%d)\n", densidade1 < densidade2);
-    printf("PIB per Capita: Carta 1 venceu (%d)\n", pib_per_capita1 > pib_per_capita2);
-    printf("Super Poder: Carta 1 venceu (%d)\n", super_poder1 > super_poder2);
+    // Escolha do atributo a ser comparado (predefinido no código)
+    char atributo[] = "PIB per Capita"; // Alterar conforme necessário
+    float valor1 = pib_per_capita1;
+    float valor2 = pib_per_capita2;
+    int vencedor = (valor1 > valor2) ? 1 : 2;
+
+    printf("\nComparação de Cartas (Atributo: %s):\n", atributo);
+    printf("Carta 1 - Rio Grande do Sul: %.2f\n", valor1);
+    printf("Carta 2 - Santa Catarina: %.2f\n", valor2);
+    printf("Resultado: Carta %d venceu!\n", vencedor);
 
     return 0; // Fim do programa
 }
